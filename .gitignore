@@ -4,5 +4,7 @@ jspm_packages
 
 # Serverless directories
 .serverless
+.build
+build
 # esbuild directories
 .esbuild
