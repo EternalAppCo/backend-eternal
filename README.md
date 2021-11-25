@@ -80,6 +80,33 @@ _Estas fueron las herramientas usadas para este proyecto_
 _Agradecimiento especial para ESLint (Airbnb) y Prettier_
 
 
+## Endpoints 🛠️
+
+_Estos son los endpoints a los que se puede acceder_
+
+
+- Creacion de Usuarios
+	```
+	POST /dev/users
+	```
+- Creación de ordenes
+	```
+	POST /dev/orders
+	```
+- Descontar o hacer efectiva una orden
+	```
+	PUT /dev/wallet/charge_order
+	```
+- Recargar dinero en el disponible de un usuario
+	```
+	PUT /dev/wallet/recharge
+	```
+- Transferir dinero de un usuario a otro
+	```
+	POST /dev/wallet/transfer-money
+	```
+
+
 ### Qué me hubiera gustado hacer? ⌨️
 
 _Debido al tiempo, hay cosas que aún se pueden agregar a esta prueba, y que en primer acercamiento se me ocurren ideas como lo son:_
