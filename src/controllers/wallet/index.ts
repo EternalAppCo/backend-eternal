@@ -38,7 +38,7 @@ export const transferMoney= {
   events: [
     {
       http: {
-        method: 'put',
+        method: 'post',
         path: 'wallet/transfer-money',
         request: {
           schemas: {
