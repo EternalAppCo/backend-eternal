@@ -6,6 +6,7 @@ const errorMiddleware = (): middy.MiddlewareObj<APIGatewayProxyEvent, APIGateway
   const onError: middy.MiddlewareFn<APIGatewayProxyEvent, APIGatewayProxyResult> = async (
     request,
   ): Promise<APIGatewayProxyResult> => {
+    console.log(request?.error)
     return formatJSONResponse(
       {
         message: request?.error?.message,

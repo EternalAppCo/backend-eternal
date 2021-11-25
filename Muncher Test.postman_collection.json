@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "3fc16bdd-0baa-4821-a3a8-06a7dfd2b311",
+		"name": "Muncher Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"User should be created\", () => {",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.user.email).to.eql(\"javierfelipevasquezroldan+2@gmail.com\");",
+							"    pm.expect(responseJson.user.wallet.balance).to.equal(330600);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Javier Vasquez\",\n    \"email\": \"javierfelipevasquezroldan+2@gmail.com\",\n    \"wallet\":{\n        \"balance\": 330600\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateOrder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Order should be created\", () => {",
+							"  const responseJson = pm.response.json();",
+							"  pm.expect(responseJson.order.status).to.eql(\"CREATED\");",
+							"  pm.expect(responseJson.order.total).to.eql(235200);",
+							"  pm.environment.set(\"oderId\", responseJson.order.id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"client_id\":\"619ee2672b269b2633d5a311\",\n   \"products\": [\n       {\n           \"product_id\": \"619f2f6705a6a03cd0f7a9b3\",\n           \"quantity\": 9\n       },\n       {\n           \"product_id\": \"619f2f6705a6a03cd0f7a9b5\",\n           \"quantity\": 1\n       }\n   ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChargeOrder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Order should be charged\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"    pm.expect(responseJson.userWithDiscountInBalance.email).to.eql(\"javierfelipevasquezroldan@gmail.com\");",
+							"    pm.expect(responseJson.userWithDiscountInBalance.wallet.balance).to.greaterThan(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"order_id\":\"{{oderId}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/wallet/charge_order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"wallet",
+						"charge_order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecargeWallet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Wallet should be recharged\", () => {",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.userWithRechergedBalance.email).to.eql(\"javierfelipevasquezroldan@gmail.com\");",
+							"    pm.expect(responseJson.userWithRechergedBalance.wallet.balance).to.greaterThan(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"user_id\":\"619ee2672b269b2633d5a311\",\n   \"amount\": 200000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/wallet/recharge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"wallet",
+						"recharge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TransferMoney",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Money shoud be tranfered\", () => {",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.userWithRechergedBalance.email).to.eql(\"munchertestemail@mailinator.com\");",
+							"    pm.expect(responseJson.userWithRechergedBalance.wallet.balance).to.greaterThan(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"from\":\"619ee2672b269b2633d5a311\",\n   \"to\":\"619ee2682b269b2633d5a313\",\n   \"amount\":10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/dev/wallet/transfer-money",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"dev",
+						"wallet",
+						"transfer-money"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
