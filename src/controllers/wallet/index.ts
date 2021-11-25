@@ -1,51 +1,51 @@
-import { chargeOrderBodySchema , rechargeWalletBodySchema, transferMoneyBodySchema} from './schema';
-import { handlerPath } from '@libs/handlerResolver';
+import { chargeOrderBodySchema, rechargeWalletBodySchema, transferMoneyBodySchema } from "./schema";
+import { handlerPath } from "@libs/handlerResolver";
 
 export const chargeOrder = {
   handler: `${handlerPath(__dirname)}/handler.chargeOrder`,
   events: [
     {
       http: {
-        method: 'put',
-        path: 'wallet/charge_order',
+        method: "put",
+        path: "wallet/charge_order",
         request: {
           schemas: {
-            'application/json': chargeOrderBodySchema
-          }
+            "application/json": chargeOrderBodySchema,
+          },
         },
-      }
+      },
     },
-  ]
-}
-export const rechargeWallet= {
+  ],
+};
+export const rechargeWallet = {
   handler: `${handlerPath(__dirname)}/handler.rechargeWallet`,
   events: [
     {
       http: {
-        method: 'put',
-        path: 'wallet/recharge',
+        method: "put",
+        path: "wallet/recharge",
         request: {
           schemas: {
-            'application/json': rechargeWalletBodySchema
-          }
+            "application/json": rechargeWalletBodySchema,
+          },
         },
-      }
+      },
     },
-  ]
-}
-export const transferMoney= {
+  ],
+};
+export const transferMoney = {
   handler: `${handlerPath(__dirname)}/handler.transferMoney`,
   events: [
     {
       http: {
-        method: 'post',
-        path: 'wallet/transfer-money',
+        method: "post",
+        path: "wallet/transfer-money",
         request: {
           schemas: {
-            'application/json': transferMoneyBodySchema
-          }
+            "application/json": transferMoneyBodySchema,
+          },
         },
-      }
+      },
     },
-  ]
-}
+  ],
+};

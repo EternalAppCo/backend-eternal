@@ -1,0 +1,56 @@
+openapi: 3.0.0
+components:
+  schemas:
+    createUserBody:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        wallet:
+          type: object
+          properties:
+            balance:
+              type: number
+      required:
+        - name
+        - email
+    createUserOKResponse:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+            walletId:
+              type: string
+            wallet:
+              type: object
+              properties:
+                balance:
+                  type: number
+  securitySchemes: {}
+info:
+  title: 'Muncher Test API '
+  description: This is a muncher test products API
+  version: '1'
+paths:
+  /users:
+    post:
+      operationId: users
+      summary: Create User
+      description: Creates a user and a wallet with balance in 0
+      responses:
+        '200':
+          description: A user was created successfuly
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createUserOKResponse'
+        '500':
+          description: An error message when creating a new user
+          content: {}

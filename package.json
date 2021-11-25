@@ -10,7 +10,7 @@
     "db:seed": "prisma db seed",
     "prettier": "prettier 'src/**/*.ts'",
     "prettier:fix": "prettier --write 'src/**/*.ts'",
-    "docs:generate": "serverless openapi generate --format json"
+    "docs:generate": "serverless openapi generate"
   },
   "engines": {
     "node": ">=14.15.0"

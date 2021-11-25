@@ -1,17 +1,17 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
-export const updateProductStock = async (productId: string, decrement: number)=> {
+export const updateProductStock = async (productId: string, decrement: number) => {
   const updateProduct = await prisma.product.update({
     where: {
       id: productId,
     },
     data: {
-      stock:{
-        decrement
-      }
+      stock: {
+        decrement,
+      },
     },
-  })
-  return updateProduct
-}
+  });
+  return updateProduct;
+};

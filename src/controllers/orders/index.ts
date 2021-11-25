@@ -1,19 +1,19 @@
-import { createOrderBodySchema } from './schema';
-import { handlerPath } from '@libs/handlerResolver';
+import { createOrderBodySchema } from "./schema";
+import { handlerPath } from "@libs/handlerResolver";
 
 export default {
   handler: `${handlerPath(__dirname)}/handler.main`,
   events: [
     {
       http: {
-        method: 'post',
-        path: 'orders',
+        method: "post",
+        path: "orders",
         request: {
           schemas: {
-            'application/json': createOrderBodySchema
-          }
+            "application/json": createOrderBodySchema,
+          },
         },
-      }
+      },
     },
-  ]
-}
+  ],
+};
