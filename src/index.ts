@@ -1,1 +1,0 @@
-export { main as createUser } from '@controllers/users/handler';

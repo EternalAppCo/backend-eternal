@@ -28,13 +28,19 @@ model OrderRow {
   productId String   @db.ObjectId
 }
 
+enum OrderStatus {
+  CREATED
+  PAID
+}
+
 model Order {
-  id        String     @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  createdAt DateTime?  @default(now())
+  id        String      @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  createdAt DateTime?   @default(now())
   total     Float?
   products  OrderRow[]
-  user      User       @relation(fields: [userId], references: [id])
+  user      User        @relation(fields: [userId], references: [id])
   userId    String
+  status    OrderStatus @default(CREATED)
 }
 
 model Wallet {

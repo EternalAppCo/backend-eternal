@@ -12,7 +12,7 @@ const serverlessConfiguration: AWS = {
     'serverless-esbuild',
     'serverless-offline',
     'serverless-dotenv-plugin',
-    'serverless-openapi-documentation'
+    'serverless-openapi-documentation',
   ],
   provider: {
     name: 'aws',

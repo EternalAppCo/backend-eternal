@@ -10,7 +10,7 @@ import type { FromSchema } from "json-schema-to-ts";
           type: "object",
           properties: { 
             product_id: { type: 'string' },
-            quantity: { type: 'number', default: 1 }
+            quantity: { type: 'number', default: 1, minimum: 1, maximum: 999 }
           },
           required: ['product_id']
         }

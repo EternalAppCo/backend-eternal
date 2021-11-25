@@ -4,6 +4,7 @@ const prisma = new PrismaClient()
 
 const userData: Prisma.UserCreateInput[] = [
   {
+    id: '619ee2672b269b2633d5a311',
     name: 'Javier Vasquez',
     email: 'javierfelipevasquezroldan@gmail.com',
     wallet: {
@@ -11,6 +12,7 @@ const userData: Prisma.UserCreateInput[] = [
     }
   },
   {
+    id: '619ee2682b269b2633d5a313',
     name: 'Test Name',
     email: 'munchertestemail@mailinator.com',
     wallet: {
@@ -21,18 +23,21 @@ const userData: Prisma.UserCreateInput[] = [
 
 const productData: Prisma.ProductCreateInput[] = [
   {
+    id: '619f2f6705a6a03cd0f7a9b3',
     name: 'Happy Meal',
 		price: 25500,
 		description: "Enjoy an easy meal for kids when you order a Happy Meal",
 		stock: 100
   },
   {
+    id: '619f2f6705a6a03cd0f7a9b4',
     name: 'Big Mac',
 		price: 13000,
 		description: "The Big Mac consists of two 1.6 oz (45 g) beef patties, special sauce ",
 		stock: 100
   },
   {
+    id: '619f2f6705a6a03cd0f7a9b5',
     name: 'McFlurry',
 		price: 5700,
 		description: "McFlurry consists of whipped, soft-serve McDonald's vanilla-flavored ice cream in a cup",
