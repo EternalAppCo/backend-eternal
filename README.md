@@ -9,12 +9,16 @@ _En este proyecto tenemos una aplicacion Node, que despliega una API REST, con a
 
 ### Pre-requisitos 📋
 
-_Se debe crear un archivo .env en la raiz del proyecto, con la variable de entorno para la dase de datos MongoDB_
+- _Se debe crear un archivo .env en la raiz del proyecto, con la variable de entorno para la dase de datos MongoDB_
 
-```
-DATABASE_URL = "mongodb+srv://muncher:muncher@cluster0.tlsmp.mongodb.net/MuncherDB?retryWrites=true&w=majority"
-```
-_Para poblar la base de datos con el seed **yarn db:seed**, esta debe estar completamente vacia, debido a que hay unos datos de prueba que tienen IDs unicos que no pueden sobreescribirse_
+	```
+	DATABASE_URL = "mongodb+srv://muncher:muncher@cluster0.tlsmp.mongodb.net/MuncherDB?retryWrites=true&w=majority"
+	```
+- _Se debe poblar la base de datos con el comando para ejecutar el seed:_ 
+	```
+	yarn db:seed
+	```
+	_Para esto, la DB debe estar completamente vacia, debido a que hay unos datos de prueba que tienen IDs unicos que no pueden sobreescribirse, (la base de datos de prueba que deje en la conexión, se encuentra previamente vacia para su uso)_
 
 
 ### Instalación 🔧
