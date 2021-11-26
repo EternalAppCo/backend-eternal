@@ -14,7 +14,7 @@ _En este proyecto tenemos una aplicacion Node, que despliega una API REST, con a
 	```
 	DATABASE_URL = "mongodb+srv://muncher:muncher@cluster0.tlsmp.mongodb.net/MuncherDB?retryWrites=true&w=majority"
 	```
-- _Se debe poblar la base de datos con el comando para ejecutar el seed:_ 
+- _Se debe poblar la base de datos con el script de instalacion (**bash start.sh**) descito mas abajo en **Instalación** o con el comando para ejecutar el seed:_ 
 	```
 	yarn db:seed
 	```
