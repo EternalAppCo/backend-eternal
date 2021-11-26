@@ -45,7 +45,11 @@ yarn db:seed (Poblamiento de la base de datos con datos de prueba)
 ```
 yarn start (Ejecucion de la aplicación)
 ```
-
+## Para probar la apliación 🧪
+En la herramienta **Postman**, se debe importar la colección que se encuentra en este repositotorio en el archivo **Muncher Test.postman_collection.json**, se importa de la siguiente manera
+```
+https://kb.datamotion.com/?ht_kb=postman-instructions-for-exporting-and-importing
+```
 ## Estructura y buenas practicas 📖
 
 Teniendo en cuenta el principio de responsabilidad unica y los demas principios de SOLID se queria crear una aplicación con código limpio y flexible ante los cambios, que sea reutilizable y mantenible, y sobre todo escalable para lo cual se usaron diferentes practicas para lograr este objetivo:
@@ -63,12 +67,7 @@ Teniendo en cuenta el principio de responsabilidad unica y los demas principios 
 
 ### Testing🔩
 
-_Aun que me hubiera gustado realizar pruebas e2e con frameworks de automation como [Cypress](https://www.cypress.io/) o [TestCafe](https://testcafe.io/), realice unas pruebas de integracion y end to end en Postman que tambien pueden ser ejecutadas con [Newman](https://www.npmjs.com/package/newman) para manejo programatico y por CLI de estas. A continuacion se muestra como acceder y ejecutar estas:_
-
-En la herramienta Postman se debe importar la coleccioón que se encuentra en este repositotorio en el archivo **Muncher Test.postman_collection.json**, se importa de la siguiente manera
-```
-https://kb.datamotion.com/?ht_kb=postman-instructions-for-exporting-and-importing
-```
+_Aun que me hubiera gustado realizar pruebas e2e con frameworks de automation como [Cypress](https://www.cypress.io/) o [TestCafe](https://testcafe.io/), realice unas pruebas de integracion y end to end en Postman que tambien pueden ser ejecutadas con [Newman](https://www.npmjs.com/package/newman) para manejo programatico y por CLI de estas._
 
 ## Construido con 🛠️
 
