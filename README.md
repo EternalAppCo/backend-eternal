@@ -46,10 +46,14 @@ yarn db:seed (Poblamiento de la base de datos con datos de prueba)
 yarn start (Ejecucion de la aplicación)
 ```
 ## Para probar la apliación 🧪
-En la herramienta **Postman**, se debe importar la colección que se encuentra en este repositotorio en el archivo **Muncher Test.postman_collection.json**, se importa de la siguiente manera
+
+_En la herramienta **Postman**, se debe importar la colección que se encuentra en este repositotorio en el archivo **Muncher Test.postman_collection.json**, se importa de la siguiente manera_
+
 ```
 https://kb.datamotion.com/?ht_kb=postman-instructions-for-exporting-and-importing
 ```
+
+_Luego de esto, en la colección encontrara los ejemplos de los endpoints descritos en la seccion **Endpoints** de mas abajo_
 ## Estructura y buenas practicas 📖
 
 Teniendo en cuenta el principio de responsabilidad unica y los demas principios de SOLID se queria crear una aplicación con código limpio y flexible ante los cambios, que sea reutilizable y mantenible, y sobre todo escalable para lo cual se usaron diferentes practicas para lograr este objetivo:
