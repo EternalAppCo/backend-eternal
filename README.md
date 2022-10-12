@@ -1,6 +1,6 @@
-# Muncher Test
+# Eternal Test
 
-_Muncher API - Backend application_
+Eternal API - Backend application_
 
 ## Comenzando 🚀
 
@@ -12,7 +12,7 @@ _En este proyecto tenemos una aplicacion Node, que despliega una API REST, con a
 - _Se debe crear un archivo .env en la raiz del proyecto, con la variable de entorno para la dase de datos MongoDB_
 
 	```
-	DATABASE_URL = "mongodb+srv://muncher:muncher@cluster0.tlsmp.mongodb.net/MuncherDB?retryWrites=true&w=majority"
+	DATABASE_URL = "mongodb+srv://eternal:eternal@cluster0.tlsmp.mongodb.net/EternalDB?retryWrites=true&w=majority"
 	```
 - _Se debe poblar la base de datos con el script de instalacion (**bash start.sh**) descito mas abajo en **Instalación** o con el comando para ejecutar el seed:_ 
 	```
